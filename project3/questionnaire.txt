@@ -1,0 +1,94 @@
+243 Puzzle Solver, Project Part 3:  Water, Clock, Chess, Jam
+
+Your Name: Dylan Bannon
+Your chosen new puzzle (Chess or Jam): Chess
+
+Teammate Name: Ben Collins
+
+
+A. DESIGN
+---------
+
+1. Explain, in detail, the design of your new puzzle, and how it "connects"
+to your common solver.
+
+Similar to the clock puzzle, it implements a puzzle interface with a generic type. The
+solver uses a generic puzzle to get the neighbors and find the solution. The GUI is 
+independent of the puzzle, using MVC and the Observer/Observable pattern to update.
+
+
+
+
+2. What changes did you need to make to your existing design for part 2?
+
+The solver is mostly unchanged, seeing as it worked fully for part 2. I didn't
+get to implement the hint (ran out of time), but if I did, I would have added
+a function that could solve from any starting config.
+
+
+3. Did you and your partner work together on any part of this assignment?
+If so, what exactly?   Please note, this was completely acceptable.
+
+No, we did not work together for any of part 3.
+
+
+
+B. TEAM INTERACTION
+-------------------
+
+4. I felt that __C____ puzzle was harder then the other.
+
+    A. my
+    B. my teammate's
+    C. neither
+    
+On a scale of:
+
+    1: Strong disagree
+    2: Disagree
+    3. Neutral
+    4. Agree
+    5. Strong Agree
+
+answer the following questions:
+
+5. I contributed to my teammate's puzzle: _1___
+    
+6. My teammate contributed to my puzzle: __1__
+
+7. If given the chance again, I would want to work with my teammate: _4___
+
+8. Please provide any additional feedback regarding your teammate.
+
+He was fine, we worked well together for parts 1 and 2. We were independent for 3.
+
+
+
+9. What was the best part about being able to work on this project as a team?
+
+If either of us ran into issues we could get help.
+
+10. Conversely, what was the worst part about being required to work in a team?
+
+Scheduling was difficult. I have a very busy schedule because of sports practices 
+and competitions.
+
+
+C. INDIVIDUAL CONTRIBUTION
+--------------------------
+
+Using the same 1-5 scale, answer the following questions.
+
+11. I contributed to my puzzle: _5___
+
+12. I feel this is a good project to learn about OOP: _5___
+
+13. I personally learned a lot about OOP by doing this project: _5___
+
+14. I think this project was too difficult: _2___
+
+15. The lectures and labs provided adequate background for this project: _3___
+
+16. Please provide any additional feedback you have regarding this project.
+
+I had fun. I did run out of time, but that was due to my own poor planning.
