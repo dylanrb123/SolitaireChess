@@ -6,7 +6,8 @@
 import java.util.ArrayList;
 
 /**
- * An interface to a Puzzle. It contains the routines necessary for accessing the start and goal configs, as well as generating new neighboring configs.
+ * An interface to a Puzzle. It contains the routines necessary for accessing the start 
+ * and goal configs, as well as generating new neighboring configs.
  * 
  * @author Dylan Bannon
  * @author Ben Collins
