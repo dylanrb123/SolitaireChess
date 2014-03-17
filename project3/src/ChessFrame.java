@@ -1,5 +1,4 @@
 
-
 /**
  * ChessFrame.java
  *
@@ -18,21 +17,13 @@ import javax.swing.*;
  */
 public class ChessFrame extends JFrame implements Observer, ActionListener {
 
-	/**
-	 * UID
-	 */
+	/** UID */
 	private static final long serialVersionUID = 1L;
-	/**
-	 * the model
-	 */
+	/** the model */
 	private Chess model;
-	/**
-	 * the buttons
-	 */
+	/** the buttons */
 	private ChessButton[][] buttons = new ChessButton[Chess.BOARD_ROWS][Chess.BOARD_COLS];
-	/**
-	 * the moves counter
-	 */
+	/** the moves counter */
 	private JLabel label;
 
 	/**
@@ -43,7 +34,6 @@ public class ChessFrame extends JFrame implements Observer, ActionListener {
 	public ChessFrame(String s, Chess model) {
 		super(s);
 		this.model = model;
-
 
 		this.setSize(500,500);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -62,9 +52,8 @@ public class ChessFrame extends JFrame implements Observer, ActionListener {
 		ChessConfig startConfig = (ChessConfig) model.getStart();
 		for (int i=0;i<Chess.BOARD_ROWS;i++) {
 			for (int j=0;j<Chess.BOARD_COLS;j++) {
-
-				
-				ChessButton button = new ChessButton(startConfig.getChessBoard()[i][j], new Location(i,j));
+				ChessButton button = new ChessButton(startConfig.getChessBoard()[i][j],
+					new Location(i,j));
 				button.addActionListener(new ChessButtonListener());
 				buttons[i][j] = button;
 				
@@ -89,16 +78,14 @@ public class ChessFrame extends JFrame implements Observer, ActionListener {
 		JButton resetButton = new JButton("Reset");
 		resetButton.addActionListener(new ResetButtonListener());
 		bottomPanel.add(resetButton);
-		
 
 		this.add(topPanel,BorderLayout.NORTH);
 		this.add(centerPanel,BorderLayout.CENTER);
 		this.add(bottomPanel,BorderLayout.SOUTH);
 		
 		model.addObserver(this);
-
-
 	}
+	
 	 /**
 	  * listener for reset button
 	  * @author Dylan Bannon
@@ -112,8 +99,8 @@ public class ChessFrame extends JFrame implements Observer, ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			model.reset();
-			if (ChessButton.getSelectedButton() != null) ChessButton.toggleSelected(ChessButton.getSelectedButton());
-			
+			if (ChessButton.getSelectedButton() != null) ChessButton.toggleSelected(
+				ChessButton.getSelectedButton());
 		}
 	}
 	
@@ -136,12 +123,10 @@ public class ChessFrame extends JFrame implements Observer, ActionListener {
 			} else if (ChessButton.getSelectedButton() != null) {
 				moveFrom = ChessButton.getSelectedButton();
 				ChessButton.toggleSelected(moveFrom);
-				model.makeMove(moveFrom.getPiece(), moveTo.getPiece(), moveFrom.getLocation1(), moveTo.getLocation1());
-
+				model.makeMove(moveFrom.getPiece(), moveTo.getPiece(),
+					moveFrom.getLocation1(), moveTo.getLocation1());
 			}
-			
 		}
-		
 	}
 	
 
@@ -152,7 +137,8 @@ public class ChessFrame extends JFrame implements Observer, ActionListener {
 	public void update(Observable arg0, Object arg1) {
 		for (int row=0;row<Chess.BOARD_ROWS;row++) {
 			for (int col=0;col<Chess.BOARD_COLS;col++) {
-				buttons[row][col].setPiece(model.getCurrentConfig().getChessBoard()[row][col]);
+				buttons[row][col].setPiece(
+					model.getCurrentConfig().getChessBoard()[row][col]);
 			}
 		}
 		int numMoves = model.getNumMoves();
@@ -168,9 +154,7 @@ public class ChessFrame extends JFrame implements Observer, ActionListener {
 			label.setText("Moves: " + numMoves);
 		}
 		validate();
-
 	}
-
 
 	/* (non-Javadoc)
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
@@ -183,10 +167,7 @@ public class ChessFrame extends JFrame implements Observer, ActionListener {
 				"  select a valid location to move to.\n\n" +
 				"- Each move must be a capture. \n\n" +
 				"- When there is only one piece left, you win!";
-		JOptionPane.showMessageDialog(this,helpMessage,"How to play:", JOptionPane.DEFAULT_OPTION);
+		JOptionPane.showMessageDialog(this,helpMessage,"How to play:",
+			JOptionPane.DEFAULT_OPTION);
 	}
-
 }
-
-
-
